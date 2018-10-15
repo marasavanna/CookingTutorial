@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- GENERAL UNIT VIEW SIZES -->
+
+    <dimen name="size_null">0dp</dimen>
+    <dimen name="size_unit">1dp</dimen>
+    <dimen name="size_double_unit">2dp</dimen>
+    <dimen name="size_quarter">4dp</dimen>
+    <dimen name="size_half">8dp</dimen>
+    <dimen name="size_normal">16dp</dimen>
+    <dimen name="size_medium">24dp</dimen>
+    <dimen name="size_double">32dp</dimen>
+    <dimen name="size_large">64dp</dimen>
+    <dimen name="size_extra_large">128dp</dimen>
+
+    <!-- DISH ITEM SIZES -->
+    <dimen name="dish_image_size">120dp</dimen>
+    <dimen name="dish_image_margin">24dp</dimen>
+
+</resources>

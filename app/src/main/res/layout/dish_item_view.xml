@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="DishItemViewBinding">
+
+        <variable
+            name="dishItem"
+            type="com.halcyonmobile.cookingtutorial.model.Dish" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/dish_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_half"
+        android:padding="@dimen/size_half"
+        app:cardBackgroundColor="@color/white">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/dish_image"
+                android:layout_width="@dimen/dish_image_size"
+                android:layout_height="@dimen/dish_image_size"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/dish_image_margin"
+                android:src="@{dishItem.image}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/dish_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:text="@{dishItem.name}"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/dish_image"
+                app:layout_constraintTop_toTopOf="@+id/dish_image"
+                tools:text="Pasta Bolognese" />
+
+            <TextView
+                android:id="@+id/vegan_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_check_black_24dp"
+                android:gravity="center"
+                android:text="@string/vegan"
+                android:textSize="16sp"
+                android:visibility="@{dishItem.isVegan() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toEndOf="@+id/dish_image"
+                app:layout_constraintTop_toBottomOf="@+id/dish_name"
+                tools:text="Vegan" />
+
+            <TextView
+                android:id="@+id/vegetarian_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_check_black_24dp"
+                android:gravity="center"
+                android:text="@string/vegetarian"
+                android:textSize="16sp"
+                android:visibility="@{dishItem.isVegetarian() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toEndOf="@+id/dish_image"
+                app:layout_constraintTop_toBottomOf="@+id/vegan_check"
+                tools:text="Vegetarian" />
+
+            <TextView
+                android:id="@+id/nationality_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_check_black_24dp"
+                android:gravity="center"
+                android:paddingBottom="24dp"
+                android:text="@{dishItem.getDishNationality()}"
+                android:textSize="16sp"
+                android:visibility="@{dishItem.hasNationality()? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toEndOf="@+id/dish_image"
+                app:layout_constraintTop_toBottomOf="@+id/vegetarian_check"
+                tools:text="Italian" />
+
+            <TextView
+                android:id="@+id/preparation_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:drawableBottom="@drawable/ic_timer_black_24dp"
+                android:text="@string/preparation_time"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dish_image"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/time_to_make"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                tools:visibility="visible"
+                android:visibility="gone"
+                android:text="@{@string/time_to_make(dishItem.getActualTimeToMake().first,dishItem.getActualTimeToMake().second)}"
+                app:layout_constraintEnd_toEndOf="@+id/preparation_time"
+                app:layout_constraintStart_toStartOf="@+id/preparation_time"
+                app:layout_constraintTop_toBottomOf="@+id/preparation_time"
+                tools:text="1h 30'" />
+
+            <TextView
+                android:id="@+id/difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/difficulty"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/preparation_time"
+                app:layout_constraintTop_toBottomOf="@+id/dish_image"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/calories"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dish_image"
+                tools:visibility="visible" />
+
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/difficulty_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:stepSize="1.0"
+                android:rating="@{dishItem.rating}"
+                app:layout_constraintStart_toEndOf="@+id/preparation_time"
+                app:layout_constraintTop_toBottomOf="@+id/difficulty"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/number_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="42dp"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(dishItem.totalCalories)}"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calories"
+                tools:text="366"
+                tools:visibility="visible" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ingredients_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:foregroundGravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/difficulty_rating"
+                tools:visibility="visible" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

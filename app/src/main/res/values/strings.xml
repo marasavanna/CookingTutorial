@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CookingTutorial</string>
+
+    <!-- Dish item Strings -->
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="preparation_time">Preparation Time</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="calories">Calories</string>
+    <string name="calories_number">%d</string>
+    <string name="time_to_make">%d h %d\'</string>
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="settings">Settings</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ingredient"
+            type="com.halcyonmobile.cookingtutorial.model.Ingredient" />
+    </data>
+
+    <TextView
+        android:id="@+id/ingredient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/grey_hamburger_small"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="@{ingredient.name}"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="75dp"
+        tools:text="Pasta" />
+</layout>
+
