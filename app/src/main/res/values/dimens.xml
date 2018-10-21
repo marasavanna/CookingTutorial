@@ -13,6 +13,7 @@
     <dimen name="size_double">32dp</dimen>
     <dimen name="size_large">64dp</dimen>
     <dimen name="size_extra_large">128dp</dimen>
+    <dimen name="bottom_nav_bar_height">56dp</dimen>
 
     <!-- DISH ITEM SIZES -->
     <dimen name="dish_image_size">120dp</dimen>

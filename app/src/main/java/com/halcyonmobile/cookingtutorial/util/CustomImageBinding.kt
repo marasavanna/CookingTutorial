@@ -2,7 +2,7 @@ package com.halcyonmobile.cookingtutorial.util
 
 import android.databinding.BindingAdapter
 import android.widget.ImageView
-import com.halcyonmobile.cookingtutorial.GlideApp
+
 
 object CustomImageBinding {
 
