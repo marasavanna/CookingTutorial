@@ -1,4 +1,4 @@
-package com.halcyonmobile.cookingtutorial.feature.home
+package com.halcyonmobile.cookingtutorial.feature.dish
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.halcyonmobile.cookingtutorial.feature.home
+package com.halcyonmobile.cookingtutorial.feature.dish
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

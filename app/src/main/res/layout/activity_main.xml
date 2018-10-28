@@ -8,18 +8,24 @@
 
     </data>
 
-    <FrameLayout
-        android:id="@+id/container"
+    <merge
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.shared.MainActivity">
 
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/bottom_nav_bar_height"
-            android:layout_gravity="bottom"
-            android:background="?android:attr/windowBackground"
-            app:menu="@menu/main_navigation" />
-    </FrameLayout>
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_nav_bar_height"
+                android:layout_gravity="bottom"
+                android:background="?android:attr/windowBackground"
+                app:menu="@menu/main_navigation" />
+
+        </FrameLayout>
+    </merge>
 </layout>

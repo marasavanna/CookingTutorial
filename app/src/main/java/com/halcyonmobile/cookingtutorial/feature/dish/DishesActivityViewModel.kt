@@ -1,4 +1,4 @@
-package com.halcyonmobile.cookingtutorial.feature.home
+package com.halcyonmobile.cookingtutorial.feature.dish
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -9,10 +9,11 @@ import javax.inject.Inject
 
 class DishesActivityViewModel @Inject constructor(private var dishRepository: DishRepository) : CookingTutorialViewModel() {
     private lateinit var dishes: MutableLiveData<List<Dish>>
+    private val selectedDishes: ArrayList<Dish> = ArrayList()
     var adapter: DishesAdapter = DishesAdapter()
 
     init {
-        adapter.setDishList(getDishes().value as ArrayList<Dish>)
+        adapter.setDishList(selectedDishes)
     }
 
     private fun getDishes(): LiveData<List<Dish>> {
@@ -25,5 +26,14 @@ class DishesActivityViewModel @Inject constructor(private var dishRepository: Di
 
     private fun loadData() {
         dishes.value = dishRepository.getDishList()
+    }
+
+    fun selectDishesByCategory(category: String) {
+        val dishList: ArrayList<Dish> = getDishes().value as ArrayList<Dish>
+        for (dish in dishList) {
+            if (dish.categories!!.contains(category)) {
+                selectedDishes.add(dish)
+            }
+        }
     }
 }

@@ -12,8 +12,6 @@ import javax.inject.Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, AppModule::class, ActivityModule::class, FragmentModule::class])
 interface AppComponent {
 
-    fun inject(fragment: HomeFragment)
-
     @Component.Builder
     interface Builder {
         @BindsInstance

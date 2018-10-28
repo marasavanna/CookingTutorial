@@ -1,7 +1,7 @@
 package com.halcyonmobile.cookingtutorial.model
 
 class Dish(val image: String, val name: String, val ingredients: ArrayList<Ingredient>?,
-           var rating: Int, private val preparationTime: Double?, private val categories: ArrayList<String>?) {
+           var rating: Int, private val preparationTime: Double?, val categories: ArrayList<String>?) {
 
     init {
         while (rating > 5) {
